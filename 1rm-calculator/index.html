@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kostenloser 1RM-Rechner für Krafttraining: Berechne dein One Rep Max mit vier Formeln und erhalte Trainingsgewichte von 65 bis 95 Prozent." />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="canonical" href="https://neyyu.github.io/liftlab/1rm-calculator/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:title" content="LiftLab | Kostenloser 1RM-Rechner" />
+    <meta property="og:description" content="Berechne dein One Rep Max und passende Trainingsgewichte für dein Krafttraining." />
+    <meta property="og:url" content="https://neyyu.github.io/liftlab/1rm-calculator/" />
+    <meta property="og:site_name" content="LiftLab" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="LiftLab | Kostenloser 1RM-Rechner" />
+    <meta name="twitter:description" content="Kostenloses Tool zur Berechnung deines One Rep Max und deiner Trainingsgewichte." />
+    <title>1RM-Rechner: One Rep Max kostenlos berechnen | LiftLab</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "LiftLab 1RM-Rechner",
+        "url": "https://neyyu.github.io/liftlab/1rm-calculator/",
+        "description": "Kostenloser Rechner für das One Rep Max im Krafttraining.",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "isAccessibleForFree": true,
+        "inLanguage": "de"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Was bedeutet 1RM?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Das 1RM (One Rep Max) ist das geschätzte maximale Gewicht, das du bei einer Übung einmal mit sauberer Technik bewegen kannst."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Welche 1RM-Formel ist die beste?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Jede Formel liefert eine Näherung. Epley ist ein verbreiteter Allrounder; bei vielen Wiederholungen können die Ergebnisse je nach Übung und Trainingsstand abweichen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie nutze ich mein berechnetes 1RM im Training?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nutze die Prozentwerte als Orientierung für deine Trainingssätze. Wähle das Gewicht so, dass du die Übung sicher und mit kontrollierter Technik ausführst."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <p class="eyebrow">LiftLab</p>
+        <h1>1RM-Rechner</h1>
+        <p class="subtitle">Schätz deinen Maximalgewichtswert für dein Training</p>
+      </header>
+
+      <div class="content">
+        <section class="panel form-panel">
+          <form id="rm-form" novalidate>
+            <div class="field-group">
+              <div class="field">
+                <label for="weight">Gewicht</label>
+                <input id="weight" type="number" min="0" step="0.5" value="110" required />
+              </div>
+
+              <div class="field">
+                <label for="reps">Wiederholungen</label>
+                <input id="reps" type="number" min="1" max="20" step="1" value="5" required />
+              </div>
+
+              <div class="field">
+                <label for="unit">Gewichtseinheit</label>
+                <select id="unit">
+                  <option value="kg">kg</option>
+                  <option value="lb">lb</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="formula">Formel</label>
+                <select id="formula">
+                  <option value="epley">Epley</option>
+                  <option value="brzycki">Brzycki</option>
+                  <option value="lombardi">Lombardi</option>
+                  <option value="oconner">O'Connor</option>
+                </select>
+              </div>
+
+              <button type="submit">1RM berechnen</button>
+            </div>
+          </form>
+        </section>
+
+        <aside class="panel result-box">
+          <p class="result-header">Geschätztes 1RM</p>
+          <p id="one-rep-max" class="one-rep-max">0 kg</p>
+
+          <div class="percent-grid">
+            <div class="percent-card">
+              <span class="label">65%</span>
+              <strong id="pct65">0 kg</strong>
+            </div>
+            <div class="percent-card">
+              <span class="label">75%</span>
+              <strong id="pct75">0 kg</strong>
+            </div>
+            <div class="percent-card">
+              <span class="label">85%</span>
+              <strong id="pct85">0 kg</strong>
+            </div>
+            <div class="percent-card">
+              <span class="label">95%</span>
+              <strong id="pct95">0 kg</strong>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="seo-content" aria-labelledby="about-title">
+        <h2 id="about-title">Dein One Rep Max einfach berechnen</h2>
+        <p>
+          Mit dem kostenlosen 1RM-Rechner von LiftLab kannst du aus einem
+          Trainingsgewicht und deinen Wiederholungen dein geschätztes maximales
+          Gewicht berechnen. Wähle zwischen den Formeln von Epley, Brzycki,
+          Lombardi und O'Connor und nutze die Prozentwerte als Orientierung für
+          deine nächsten Sätze.
+        </p>
+
+        <div class="faq-list">
+          <details>
+            <summary>Was bedeutet 1RM?</summary>
+            <p>Das 1RM (One Rep Max) ist das geschätzte maximale Gewicht, das du bei einer Übung einmal mit sauberer Technik bewegen kannst.</p>
+          </details>
+          <details>
+            <summary>Welche 1RM-Formel ist die beste?</summary>
+            <p>Jede Formel liefert eine Näherung. Epley ist ein verbreiteter Allrounder; bei vielen Wiederholungen können die Ergebnisse je nach Übung und Trainingsstand abweichen.</p>
+          </details>
+          <details>
+            <summary>Wie nutze ich mein berechnetes 1RM im Training?</summary>
+            <p>Nutze die Prozentwerte als Orientierung für deine Trainingssätze. Wähle das Gewicht so, dass du die Übung sicher und mit kontrollierter Technik ausführst.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
