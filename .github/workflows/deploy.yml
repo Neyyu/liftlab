@@ -1,0 +1,15 @@
+name: Deploy Pipeline
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+          # Test Rule 1: Secret Expiration
+          # EXPIRES: 2025-01-01
+          - name: Set API Token
+            run: echo "API_KEY=xyz123"
+
+          # Test Rule 2: Unpinned Action
+          - name: Checkout Code
+            uses: actions/checkout@v3
