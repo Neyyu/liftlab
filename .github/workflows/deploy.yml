@@ -1,6 +1,6 @@
 name: Deploy Pipeline
 on: [push]
-#trigger fresh scan
+
 jobs:
   build:
     runs-on: ubuntu-latest
